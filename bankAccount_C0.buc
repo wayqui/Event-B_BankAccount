@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" version="3">
-<org.eventb.core.carrierSet name="'" org.eventb.core.identifier="ACCOUNT"/>
-<org.eventb.core.carrierSet name="(" org.eventb.core.identifier="CLIENT"/>
+<org.eventb.core.carrierSet name="'" org.eventb.core.comment="FUN1: The bank deals with accounts" org.eventb.core.identifier="ACCOUNT"/>
+<org.eventb.core.carrierSet name="(" org.eventb.core.comment="FUN1: The bank deals with clients" org.eventb.core.identifier="CLIENT"/>
 <org.eventb.core.axiom name=")" org.eventb.core.label="axm1" org.eventb.core.predicate="finite(ACCOUNT)"/>
 <org.eventb.core.axiom name="*" org.eventb.core.label="axm2" org.eventb.core.predicate="finite(CLIENT)"/>
 <org.eventb.core.constant name="+" org.eventb.core.identifier="K"/>
-<org.eventb.core.axiom name="," org.eventb.core.label="axm3" org.eventb.core.predicate="K ∈ ℕ"/>
+<org.eventb.core.axiom name="," org.eventb.core.comment="FUN10: K is the debit limit of two consecutive debit operations without credit operation in-between  " org.eventb.core.label="axm3" org.eventb.core.predicate="K ∈ ℕ"/>
 </org.eventb.core.contextFile>

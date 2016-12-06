@@ -17,4 +17,8 @@
 <org.eventb.core.scAction name="'" org.eventb.core.assignment="balance ≔ ∅ ⦂ ℙ(ACCOUNT×ℤ)" org.eventb.core.label="initBalance" org.eventb.core.source="/BankAccount/bankAccount_M0.bum|org.eventb.core.machineFile#bankAccount_M0|org.eventb.core.event#'|org.eventb.core.action#'"/>
 <org.eventb.core.scAction name="(" org.eventb.core.assignment="owner ≔ ∅ ⦂ ℙ(ACCOUNT×CLIENT)" org.eventb.core.label="initOwner" org.eventb.core.source="/BankAccount/bankAccount_M0.bum|org.eventb.core.machineFile#bankAccount_M0|org.eventb.core.event#'|org.eventb.core.action#("/>
 </org.eventb.core.scEvent>
+<org.eventb.core.scEvent name="bankAccount_C4" org.eventb.core.accurate="true" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label=" operate" org.eventb.core.source="/BankAccount/bankAccount_M0.bum|org.eventb.core.machineFile#bankAccount_M0|org.eventb.core.event#.">
+<org.eventb.core.scAction name="'" org.eventb.core.assignment="owner :∈ ACCOUNT ⇸ CLIENT" org.eventb.core.label="setNewAccountOwnership" org.eventb.core.source="/BankAccount/bankAccount_M0.bum|org.eventb.core.machineFile#bankAccount_M0|org.eventb.core.event#.|org.eventb.core.action#act1"/>
+<org.eventb.core.scAction name="(" org.eventb.core.assignment="balance :∈ ACCOUNT ⇸ ℕ" org.eventb.core.label="setNewAccountBalance" org.eventb.core.source="/BankAccount/bankAccount_M0.bum|org.eventb.core.machineFile#bankAccount_M0|org.eventb.core.event#.|org.eventb.core.action#act2"/>
+</org.eventb.core.scEvent>
 </org.eventb.core.scMachineFile>

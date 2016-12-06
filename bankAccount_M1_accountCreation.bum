@@ -9,15 +9,21 @@
 <org.eventb.core.event name="*" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="accountCreation">
 <org.eventb.core.parameter name="'" org.eventb.core.identifier="c"/>
 <org.eventb.core.guard name="(" org.eventb.core.label="inClient" org.eventb.core.predicate="c ∈ CLIENT"/>
-<org.eventb.core.action name=")" org.eventb.core.assignment="owner ≔ owner ∪ {a ↦ c}" org.eventb.core.label="setNewAccountOwnership"/>
-<org.eventb.core.action name="*" org.eventb.core.assignment="balance ≔ balance ∪ {a ↦ 0}" org.eventb.core.label="setNewAccountBalance"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="owner ≔ owner ∪ {a ↦ c}" org.eventb.core.comment="FUN2: Ownership is set once and only once, at the creation of the account" org.eventb.core.label="setNewAccountOwnership"/>
+<org.eventb.core.action name="*" org.eventb.core.assignment="balance ≔ balance ∪ {a ↦ 0}" org.eventb.core.comment="FUN4: Balance is set to 0 on ACCOUNT creation" org.eventb.core.label="setNewAccountBalance"/>
 <org.eventb.core.parameter name="+" org.eventb.core.identifier="a"/>
 <org.eventb.core.guard name="," org.eventb.core.label="inAccount" org.eventb.core.predicate="a ∈ ACCOUNT"/>
 <org.eventb.core.guard name="-" org.eventb.core.label="notRepeatedOwnership" org.eventb.core.predicate="a ∉ dom(owner)"/>
 <org.eventb.core.guard name="." org.eventb.core.label="notRepeatedBalance" org.eventb.core.predicate="a ∉ dom(balance)"/>
+<org.eventb.core.refinesEvent name="/" org.eventb.core.target=" operate"/>
 </org.eventb.core.event>
-<org.eventb.core.variable name="+" org.eventb.core.identifier="owner"/>
+<org.eventb.core.variable name="+" org.eventb.core.comment="FUN2: the owner function keeps track of ownership by mapping a CLIENT owner to each ACCOUNT" org.eventb.core.identifier="owner"/>
 <org.eventb.core.variable name="," org.eventb.core.identifier="balance"/>
 <org.eventb.core.invariant name="-" org.eventb.core.label="invBalance" org.eventb.core.predicate="balance ∈ ACCOUNT ⇸ ℕ"/>
 <org.eventb.core.invariant name="." org.eventb.core.label="invOwner" org.eventb.core.predicate="owner ∈ ACCOUNT ⇸ CLIENT"/>
+<org.eventb.core.event name="/" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="operate">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target=" operate"/>
+<org.eventb.core.action name="act3" org.eventb.core.assignment="owner :∈ ACCOUNT ⇸ CLIENT" org.eventb.core.label="setNewAccountOwnership"/>
+<org.eventb.core.action name="act5" org.eventb.core.assignment="balance :∈ ACCOUNT ⇸ ℕ" org.eventb.core.label="setNewAccountBalance"/>
+</org.eventb.core.event>
 </org.eventb.core.machineFile>

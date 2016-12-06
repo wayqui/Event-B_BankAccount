@@ -4,9 +4,13 @@
 <org.eventb.core.action name="'" org.eventb.core.assignment="balance ≔ ∅" org.eventb.core.label="initBalance"/>
 <org.eventb.core.action name="(" org.eventb.core.assignment="owner ≔ ∅" org.eventb.core.label="initOwner"/>
 </org.eventb.core.event>
-<org.eventb.core.variable name="(" org.eventb.core.identifier="balance"/>
-<org.eventb.core.invariant name=")" org.eventb.core.label="invBalance" org.eventb.core.predicate="balance ∈ ACCOUNT ⇸ ℕ"/>
+<org.eventb.core.variable name="(" org.eventb.core.comment="FUN2: the owner function keeps track of ownership by mapping a CLIENT owner to each ACCOUNT" org.eventb.core.identifier="balance"/>
+<org.eventb.core.invariant name=")" org.eventb.core.comment="FUN5: the range of the balance function is NAT, hence balance can never be negative" org.eventb.core.label="invBalance" org.eventb.core.predicate="balance ∈ ACCOUNT ⇸ ℕ"/>
 <org.eventb.core.seesContext name="*" org.eventb.core.target="bankAccount_C0"/>
-<org.eventb.core.variable name="+" org.eventb.core.identifier="owner"/>
+<org.eventb.core.variable name="+" org.eventb.core.comment="FUN3: the balance partial function keeps track of the balance of each ACCOUNT by mapping it to a natural number" org.eventb.core.identifier="owner"/>
 <org.eventb.core.invariant name="," org.eventb.core.label="invOwner" org.eventb.core.predicate="owner ∈ ACCOUNT ⇸ CLIENT"/>
+<org.eventb.core.event name="." org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label=" operate">
+<org.eventb.core.action name="act1" org.eventb.core.assignment="owner :∈ ACCOUNT ⇸ CLIENT" org.eventb.core.label="setNewAccountOwnership"/>
+<org.eventb.core.action name="act2" org.eventb.core.assignment="balance :∈ ACCOUNT ⇸ ℕ" org.eventb.core.label="setNewAccountBalance"/>
+</org.eventb.core.event>
 </org.eventb.core.machineFile>

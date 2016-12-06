@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" version="5">
-<org.eventb.core.event name="'" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="INITIALISATION"/>
+<org.eventb.core.event name="'" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="INITIALISATION">
+<org.eventb.core.action name="'" org.eventb.core.assignment="balance ≔ ∅" org.eventb.core.label="initBalance"/>
+<org.eventb.core.action name="(" org.eventb.core.assignment="owner ≔ ∅" org.eventb.core.label="initOwner"/>
+</org.eventb.core.event>
 <org.eventb.core.seesContext name="(" org.eventb.core.target="bankAccount_C0"/>
 <org.eventb.core.refinesMachine name=")" org.eventb.core.target="bankAccount_M2_deposit"/>
 <org.eventb.core.event name="*" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="accountCreation">
@@ -28,17 +31,23 @@
 <org.eventb.core.guard name="." org.eventb.core.label="amountIsPositive" org.eventb.core.predicate="x &gt; 0"/>
 <org.eventb.core.refinesEvent name="/" org.eventb.core.target="deposit"/>
 </org.eventb.core.event>
-<org.eventb.core.event name="0" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="withdraw">
+<org.eventb.core.event name="0" org.eventb.core.comment="FUN7: The withdraw event effectively decreases the balance of ACCOUNT a by amount x, if CLIENT c is its owner" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="withdraw">
 <org.eventb.core.guard name="'" org.eventb.core.label="inClient" org.eventb.core.predicate="c ∈ CLIENT"/>
 <org.eventb.core.action name="(" org.eventb.core.assignment="balance ≔ balance  {a ↦ (balance(a) − x)}" org.eventb.core.label="updateBalance"/>
 <org.eventb.core.parameter name=")" org.eventb.core.identifier="c"/>
 <org.eventb.core.parameter name="*" org.eventb.core.identifier="a"/>
 <org.eventb.core.parameter name="+" org.eventb.core.identifier="x"/>
 <org.eventb.core.guard name="," org.eventb.core.label="inAccount" org.eventb.core.predicate="a ∈ ACCOUNT"/>
-<org.eventb.core.guard name="-" org.eventb.core.label="amountIsPositive" org.eventb.core.predicate="x &gt; 0"/>
-<org.eventb.core.guard name="." org.eventb.core.label="clientIsOwner" org.eventb.core.predicate="c = owner(a)"/>
-<org.eventb.core.guard name="/" org.eventb.core.label="balanceIsSufficient" org.eventb.core.predicate="balance(a) ≥ x"/>
 <org.eventb.core.guard name="grd1" org.eventb.core.label="existingAccountOwner" org.eventb.core.predicate="a ∈ dom(owner)"/>
 <org.eventb.core.guard name="grd2" org.eventb.core.label="existingAccountBalance" org.eventb.core.predicate="a ∈ dom(balance)"/>
+<org.eventb.core.guard name="-" org.eventb.core.label="amountIsPositive" org.eventb.core.predicate="x &gt; 0"/>
+<org.eventb.core.guard name="." org.eventb.core.comment="FUN9: Operation can only be performed by owner of the account to debit" org.eventb.core.label="clientIsOwner" org.eventb.core.predicate="c = owner(a)"/>
+<org.eventb.core.guard name="/" org.eventb.core.label="balanceIsSufficient" org.eventb.core.predicate="balance(a) ≥ x"/>
+<org.eventb.core.refinesEvent name="grd3" org.eventb.core.target="operate"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="1" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="operate">
+<org.eventb.core.action name="act1" org.eventb.core.assignment="balance :∈ ACCOUNT ⇸ ℕ" org.eventb.core.label="setNewAccountBalance"/>
+<org.eventb.core.action name="act2" org.eventb.core.assignment="owner :∈ ACCOUNT ⇸ CLIENT" org.eventb.core.label="setNewAccountOwnership"/>
+<org.eventb.core.refinesEvent name="(" org.eventb.core.target="operate"/>
 </org.eventb.core.event>
 </org.eventb.core.machineFile>

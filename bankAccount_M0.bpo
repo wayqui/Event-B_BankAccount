@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<org.eventb.core.poFile org.eventb.core.poStamp="7">
-<org.eventb.core.poPredicateSet name="CTXHYP" org.eventb.core.poStamp="2">
+<org.eventb.core.poFile org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicateSet name="CTXHYP" org.eventb.core.poStamp="0">
 <org.eventb.core.poIdentifier name="ACCOUNT" org.eventb.core.type="ℙ(ACCOUNT)"/>
 <org.eventb.core.poIdentifier name="CLIENT" org.eventb.core.type="ℙ(CLIENT)"/>
 <org.eventb.core.poIdentifier name="K" org.eventb.core.type="ℤ"/>
@@ -8,11 +8,11 @@
 <org.eventb.core.poPredicate name="ACCOUNV" org.eventb.core.predicate="finite(CLIENT)" org.eventb.core.source="/BankAccount/bankAccount_C0.buc|org.eventb.core.contextFile#bankAccount_C0|org.eventb.core.axiom#*"/>
 <org.eventb.core.poPredicate name="ACCOUNW" org.eventb.core.predicate="K∈ℕ" org.eventb.core.source="/BankAccount/bankAccount_C0.buc|org.eventb.core.contextFile#bankAccount_C0|org.eventb.core.axiom#,"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.parentSet="/BankAccount/bankAccount_M0.bpo|org.eventb.core.poFile#bankAccount_M0|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="3">
+<org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.parentSet="/BankAccount/bankAccount_M0.bpo|org.eventb.core.poFile#bankAccount_M0|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="0">
 <org.eventb.core.poIdentifier name="balance" org.eventb.core.type="ℙ(ACCOUNT×ℤ)"/>
 <org.eventb.core.poIdentifier name="owner" org.eventb.core.type="ℙ(ACCOUNT×CLIENT)"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poSequent name="INITIALISATION/invBalance/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="7">
+<org.eventb.core.poSequent name="INITIALISATION/invBalance/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/BankAccount/bankAccount_M0.bpo|org.eventb.core.poFile#bankAccount_M0|org.eventb.core.poPredicateSet#EVTALLHYPbankAccount_C3"/>
 <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="(∅ ⦂ ℙ(ACCOUNT×ℤ))∈ACCOUNT ⇸ ℕ" org.eventb.core.source="/BankAccount/bankAccount_M0.bum|org.eventb.core.machineFile#bankAccount_M0|org.eventb.core.invariant#)"/>
 <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/BankAccount/bankAccount_M0.bum|org.eventb.core.machineFile#bankAccount_M0|org.eventb.core.event#'"/>
@@ -20,7 +20,7 @@
 <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/BankAccount/bankAccount_M0.bpo|org.eventb.core.poFile#bankAccount_M0|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/BankAccount/bankAccount_M0.bpo|org.eventb.core.poFile#bankAccount_M0|org.eventb.core.poSequent#INITIALISATION\/invBalance\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
 <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/BankAccount/bankAccount_M0.bpo|org.eventb.core.poFile#bankAccount_M0|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD0"/>
 </org.eventb.core.poSequent>
-<org.eventb.core.poSequent name="INITIALISATION/invOwner/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="7">
+<org.eventb.core.poSequent name="INITIALISATION/invOwner/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/BankAccount/bankAccount_M0.bpo|org.eventb.core.poFile#bankAccount_M0|org.eventb.core.poPredicateSet#EVTALLHYPbankAccount_C3"/>
 <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="(∅ ⦂ ℙ(ACCOUNT×CLIENT))∈ACCOUNT ⇸ CLIENT" org.eventb.core.source="/BankAccount/bankAccount_M0.bum|org.eventb.core.machineFile#bankAccount_M0|org.eventb.core.invariant#,"/>
 <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/BankAccount/bankAccount_M0.bum|org.eventb.core.machineFile#bankAccount_M0|org.eventb.core.event#'"/>
@@ -33,7 +33,44 @@
 <org.eventb.core.poIdentifier name="balance'" org.eventb.core.type="ℙ(ACCOUNT×ℤ)"/>
 </org.eventb.core.poPredicateSet>
 <org.eventb.core.poPredicateSet name="EVTALLHYPbankAccount_C3" org.eventb.core.parentSet="/BankAccount/bankAccount_M0.bpo|org.eventb.core.poFile#bankAccount_M0|org.eventb.core.poPredicateSet#EVTIDENTbankAccount_C3" org.eventb.core.poStamp="0"/>
-<org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/BankAccount/bankAccount_M0.bpo|org.eventb.core.poFile#bankAccount_M0|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="6">
+<org.eventb.core.poSequent name=" operate/invBalance/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/BankAccount/bankAccount_M0.bpo|org.eventb.core.poFile#bankAccount_M0|org.eventb.core.poPredicateSet#EVTALLHYPbankAccount_C4">
+<org.eventb.core.poPredicate name="'" org.eventb.core.predicate="balance'∈ACCOUNT ⇸ ℕ" org.eventb.core.source="/BankAccount/bankAccount_M0.bum|org.eventb.core.machineFile#bankAccount_M0|org.eventb.core.event#.|org.eventb.core.action#act2"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="balance'∈ACCOUNT ⇸ ℕ" org.eventb.core.source="/BankAccount/bankAccount_M0.bum|org.eventb.core.machineFile#bankAccount_M0|org.eventb.core.invariant#)"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/BankAccount/bankAccount_M0.bum|org.eventb.core.machineFile#bankAccount_M0|org.eventb.core.event#."/>
+<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/BankAccount/bankAccount_M0.bum|org.eventb.core.machineFile#bankAccount_M0|org.eventb.core.invariant#)"/>
+<org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/BankAccount/bankAccount_M0.bpo|org.eventb.core.poFile#bankAccount_M0|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/BankAccount/bankAccount_M0.bpo|org.eventb.core.poFile#bankAccount_M0|org.eventb.core.poSequent# operate\/invBalance\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/BankAccount/bankAccount_M0.bpo|org.eventb.core.poFile#bankAccount_M0|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD0"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poSequent name=" operate/invOwner/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/BankAccount/bankAccount_M0.bpo|org.eventb.core.poFile#bankAccount_M0|org.eventb.core.poPredicateSet#EVTALLHYPbankAccount_C4">
+<org.eventb.core.poPredicate name="'" org.eventb.core.predicate="owner'∈ACCOUNT ⇸ CLIENT" org.eventb.core.source="/BankAccount/bankAccount_M0.bum|org.eventb.core.machineFile#bankAccount_M0|org.eventb.core.event#.|org.eventb.core.action#act1"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="owner'∈ACCOUNT ⇸ CLIENT" org.eventb.core.source="/BankAccount/bankAccount_M0.bum|org.eventb.core.machineFile#bankAccount_M0|org.eventb.core.invariant#,"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/BankAccount/bankAccount_M0.bum|org.eventb.core.machineFile#bankAccount_M0|org.eventb.core.event#."/>
+<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/BankAccount/bankAccount_M0.bum|org.eventb.core.machineFile#bankAccount_M0|org.eventb.core.invariant#,"/>
+<org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/BankAccount/bankAccount_M0.bpo|org.eventb.core.poFile#bankAccount_M0|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/BankAccount/bankAccount_M0.bpo|org.eventb.core.poFile#bankAccount_M0|org.eventb.core.poSequent# operate\/invOwner\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/BankAccount/bankAccount_M0.bpo|org.eventb.core.poFile#bankAccount_M0|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD1"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poSequent name=" operate/setNewAccountOwnership/FIS" org.eventb.core.accurate="true" org.eventb.core.poDesc="Feasibility of action" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/BankAccount/bankAccount_M0.bpo|org.eventb.core.poFile#bankAccount_M0|org.eventb.core.poPredicateSet#EVTALLHYPbankAccount_C4"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="ACCOUNT ⇸ CLIENT≠(∅ ⦂ ℙ(ℙ(ACCOUNT×CLIENT)))" org.eventb.core.source="/BankAccount/bankAccount_M0.bum|org.eventb.core.machineFile#bankAccount_M0|org.eventb.core.event#.|org.eventb.core.action#act1"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/BankAccount/bankAccount_M0.bum|org.eventb.core.machineFile#bankAccount_M0|org.eventb.core.event#.|org.eventb.core.action#act1"/>
+<org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/BankAccount/bankAccount_M0.bpo|org.eventb.core.poFile#bankAccount_M0|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/BankAccount/bankAccount_M0.bpo|org.eventb.core.poFile#bankAccount_M0|org.eventb.core.poPredicateSet#EVTALLHYPbankAccount_C4"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poSequent name=" operate/setNewAccountBalance/FIS" org.eventb.core.accurate="true" org.eventb.core.poDesc="Feasibility of action" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/BankAccount/bankAccount_M0.bpo|org.eventb.core.poFile#bankAccount_M0|org.eventb.core.poPredicateSet#EVTALLHYPbankAccount_C4"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="ACCOUNT ⇸ ℕ≠(∅ ⦂ ℙ(ℙ(ACCOUNT×ℤ)))" org.eventb.core.source="/BankAccount/bankAccount_M0.bum|org.eventb.core.machineFile#bankAccount_M0|org.eventb.core.event#.|org.eventb.core.action#act2"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/BankAccount/bankAccount_M0.bum|org.eventb.core.machineFile#bankAccount_M0|org.eventb.core.event#.|org.eventb.core.action#act2"/>
+<org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/BankAccount/bankAccount_M0.bpo|org.eventb.core.poFile#bankAccount_M0|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/BankAccount/bankAccount_M0.bpo|org.eventb.core.poFile#bankAccount_M0|org.eventb.core.poPredicateSet#EVTALLHYPbankAccount_C4"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poPredicateSet name="EVTIDENTbankAccount_C4" org.eventb.core.parentSet="/BankAccount/bankAccount_M0.bpo|org.eventb.core.poFile#bankAccount_M0|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+<org.eventb.core.poIdentifier name="owner'" org.eventb.core.type="ℙ(ACCOUNT×CLIENT)"/>
+<org.eventb.core.poIdentifier name="balance'" org.eventb.core.type="ℙ(ACCOUNT×ℤ)"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTALLHYPbankAccount_C4" org.eventb.core.parentSet="/BankAccount/bankAccount_M0.bpo|org.eventb.core.poFile#bankAccount_M0|org.eventb.core.poPredicateSet#EVTIDENTbankAccount_C4" org.eventb.core.poStamp="0"/>
+<org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/BankAccount/bankAccount_M0.bpo|org.eventb.core.poFile#bankAccount_M0|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="0">
 <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="balance∈ACCOUNT ⇸ ℕ" org.eventb.core.source="/BankAccount/bankAccount_M0.bum|org.eventb.core.machineFile#bankAccount_M0|org.eventb.core.invariant#)"/>
 <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="owner∈ACCOUNT ⇸ CLIENT" org.eventb.core.source="/BankAccount/bankAccount_M0.bum|org.eventb.core.machineFile#bankAccount_M0|org.eventb.core.invariant#,"/>
 </org.eventb.core.poPredicateSet>

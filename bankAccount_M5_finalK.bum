@@ -18,7 +18,7 @@
 <org.eventb.core.guard name="." org.eventb.core.label="notRepeatedBalance" org.eventb.core.predicate="a ∉ dom(balance)"/>
 <org.eventb.core.refinesEvent name="/" org.eventb.core.target="accountCreation"/>
 <org.eventb.core.guard name="0" org.eventb.core.label="notRepeatedLastMovement" org.eventb.core.predicate="a ∉ dom(lastMovement)"/>
-<org.eventb.core.action name="1" org.eventb.core.assignment="lastMovement ≔ lastMovement ∪ {a ↦ 0}" org.eventb.core.label="setNewAccountLastMovement"/>
+<org.eventb.core.action name="1" org.eventb.core.assignment="lastMovement ≔ lastMovement ∪ {a ↦ 0}" org.eventb.core.comment="FUN10: lastMovement is set to 0 on ACCOUNT creation" org.eventb.core.label="setNewAccountLastMovement"/>
 </org.eventb.core.event>
 <org.eventb.core.variable name="+" org.eventb.core.identifier="owner"/>
 <org.eventb.core.variable name="," org.eventb.core.identifier="balance"/>
@@ -34,7 +34,7 @@
 <org.eventb.core.guard name="1" org.eventb.core.label="existingAccountLastMovement" org.eventb.core.predicate="a ∈ dom(lastMovement)"/>
 <org.eventb.core.guard name="." org.eventb.core.label="amountIsPositive" org.eventb.core.predicate="x &gt; 0"/>
 <org.eventb.core.refinesEvent name="/" org.eventb.core.target="deposit"/>
-<org.eventb.core.action name="0" org.eventb.core.assignment="lastMovement ≔ lastMovement  {a ↦ 0}" org.eventb.core.label="resetLastMovement"/>
+<org.eventb.core.action name="0" org.eventb.core.assignment="lastMovement ≔ lastMovement  {a ↦ 0}" org.eventb.core.comment="FUN10: lastMovement for account is reset when a credit operation occurs" org.eventb.core.label="resetLastMovement"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="0" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="withdraw">
 <org.eventb.core.guard name="'" org.eventb.core.label="inClient" org.eventb.core.predicate="c ∈ CLIENT"/>
@@ -43,15 +43,15 @@
 <org.eventb.core.parameter name="*" org.eventb.core.identifier="a"/>
 <org.eventb.core.parameter name="+" org.eventb.core.identifier="x"/>
 <org.eventb.core.guard name="," org.eventb.core.label="inAccount" org.eventb.core.predicate="a ∈ ACCOUNT"/>
+<org.eventb.core.guard name="grd2" org.eventb.core.label="existingAccountOwner" org.eventb.core.predicate="a ∈ dom(owner)"/>
+<org.eventb.core.guard name="grd4" org.eventb.core.label="existingAccountLastMovement" org.eventb.core.predicate="a ∈ dom(lastMovement)"/>
+<org.eventb.core.guard name="grd3" org.eventb.core.label="existingAccountBalance" org.eventb.core.predicate="a ∈ dom(balance)"/>
+<org.eventb.core.guard name="grd5" org.eventb.core.comment="FUN10: Only authorize debit operation if limit K will not be reached after performing it" org.eventb.core.label="authorizedByBank" org.eventb.core.predicate="x + lastMovement(a) ≤ K"/>
 <org.eventb.core.guard name="-" org.eventb.core.label="amountIsPositive" org.eventb.core.predicate="x &gt; 0"/>
 <org.eventb.core.guard name="." org.eventb.core.label="clientIsOwner" org.eventb.core.predicate="c = owner(a)"/>
 <org.eventb.core.guard name="/" org.eventb.core.label="balanceIsSufficient" org.eventb.core.predicate="balance(a) ≥ x"/>
 <org.eventb.core.refinesEvent name="0" org.eventb.core.target="withdraw"/>
-<org.eventb.core.guard name="1" org.eventb.core.label="authorizedByBank" org.eventb.core.predicate="x + lastMovement(a) ≤ K"/>
-<org.eventb.core.action name="2" org.eventb.core.assignment="lastMovement ≔ lastMovement  {a ↦ x}" org.eventb.core.label="updateLastMovement"/>
-<org.eventb.core.guard name="grd2" org.eventb.core.label="existingAccountOwner" org.eventb.core.predicate="a ∈ dom(owner)"/>
-<org.eventb.core.guard name="grd3" org.eventb.core.label="existingAccountBalance" org.eventb.core.predicate="a ∈ dom(balance)"/>
-<org.eventb.core.guard name="grd4" org.eventb.core.label="existingAccountLastMovement" org.eventb.core.predicate="a ∈ dom(lastMovement)"/>
+<org.eventb.core.action name="2" org.eventb.core.assignment="lastMovement ≔ lastMovement  {a ↦ x}" org.eventb.core.comment="FUN10: Update last movement amount" org.eventb.core.label="updateLastMovement"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="1" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="transfer">
 <org.eventb.core.action name="'" org.eventb.core.assignment="balance ≔ (balance  {aFrom ↦ (balance(aFrom) − x)})  {aTo ↦ (balance(aTo) + x)}" org.eventb.core.label="updateBalances"/>
@@ -62,18 +62,19 @@
 <org.eventb.core.parameter name="," org.eventb.core.identifier="x"/>
 <org.eventb.core.guard name="-" org.eventb.core.label="inAccountFrom" org.eventb.core.predicate="aFrom ∈ ACCOUNT"/>
 <org.eventb.core.guard name="." org.eventb.core.label="inAccountTo" org.eventb.core.predicate="aTo ∈ ACCOUNT" org.eventb.core.theorem="true"/>
-<org.eventb.core.guard name="/" org.eventb.core.label="clientIsAFromOwner" org.eventb.core.predicate="c = owner(aFrom)"/>
-<org.eventb.core.guard name="0" org.eventb.core.label="amountIsPositive" org.eventb.core.predicate="x &gt; 0"/>
-<org.eventb.core.guard name="1" org.eventb.core.label="balanceFromIsSufficien" org.eventb.core.predicate="balance(aFrom) ≥ x"/>
 <org.eventb.core.guard name="grd1" org.eventb.core.label="existingAccountAFromOwner" org.eventb.core.predicate="aFrom ∈ dom(owner)"/>
 <org.eventb.core.guard name="grd2" org.eventb.core.label="existingAccountAFromBalance" org.eventb.core.predicate="aFrom ∈ dom(balance)"/>
-<org.eventb.core.guard name="grd3" org.eventb.core.label="existingAccountAFromLastMovement" org.eventb.core.predicate="aFrom ∈ dom(lastMovement)"/>
+<org.eventb.core.guard name="grd8" org.eventb.core.label="existingAccountAFromLastMovement" org.eventb.core.predicate="aFrom ∈ dom(lastMovement)"/>
 <org.eventb.core.guard name="grd4" org.eventb.core.label="existingAccountAToOwner" org.eventb.core.predicate="aTo ∈ dom(owner)"/>
 <org.eventb.core.guard name="grd5" org.eventb.core.label="existingAccountAToBalance&#9;" org.eventb.core.predicate="aTo ∈ dom(balance)"/>
 <org.eventb.core.guard name="grd6" org.eventb.core.label="existingAccountAToLastMovement" org.eventb.core.predicate="aTo ∈ dom(lastMovement)"/>
+<org.eventb.core.guard name="/" org.eventb.core.label="clientIsAFromOwner" org.eventb.core.predicate="c = owner(aFrom)"/>
+<org.eventb.core.guard name="0" org.eventb.core.label="amountIsPositive" org.eventb.core.predicate="x &gt; 0"/>
+<org.eventb.core.guard name="1" org.eventb.core.label="balanceFromIsSufficient" org.eventb.core.predicate="balance(aFrom) ≥ x"/>
+<org.eventb.core.guard name="grd7" org.eventb.core.comment="FUN10: Only authorize debit operation if limit K will not be reached after performing it" org.eventb.core.label="authorizedByBank" org.eventb.core.predicate="x + lastMovement(aFrom) ≤ K"/>
 <org.eventb.core.refinesEvent name="2" org.eventb.core.target="transfer"/>
-<org.eventb.core.action name="grd7" org.eventb.core.assignment="lastMovement ≔ (lastMovement  {aFrom ↦ x})  {aTo ↦ 0}" org.eventb.core.label="updateLastMovements"/>
+<org.eventb.core.action name="grd7" org.eventb.core.assignment="lastMovement ≔ (lastMovement  {aFrom ↦ x})  {aTo ↦ 0}" org.eventb.core.comment="FUN10: Update last movement amount" org.eventb.core.label="updateLastMovements"/>
 </org.eventb.core.event>
-<org.eventb.core.variable name="2" org.eventb.core.identifier="lastMovement"/>
+<org.eventb.core.variable name="2" org.eventb.core.comment="FUN10: the lastMovement partial function maps a natural number representing the amount of the last debit operation, to any ACCOUNT " org.eventb.core.identifier="lastMovement"/>
 <org.eventb.core.invariant name="3" org.eventb.core.comment="Amount of last debit operation if no credit operation happened in between" org.eventb.core.label="invLastMovement" org.eventb.core.predicate="lastMovement ∈ ACCOUNT ⇸ ℕ"/>
 </org.eventb.core.machineFile>
