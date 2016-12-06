@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.psFile>
+<org.eventb.core.psStatus name="INITIALISATION/invBalance/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="14" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="INITIALISATION/invOwner/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="14" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="accountCreation/invBalance/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="19" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="accountCreation/invOwner/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="19" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="deposit/invBalance/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="21" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="deposit/updateBalance/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="21" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="deposit/balance/EQL" org.eventb.core.confidence="0" org.eventb.core.poStamp="21" org.eventb.core.psManual="false"/>
+</org.eventb.core.psFile>
